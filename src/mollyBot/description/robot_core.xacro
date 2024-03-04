@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="simple_bot">
 
+  <xacro:include filename="inertial_macros.xacro"/>
+
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
   <!-- Properties for easy modification -->
   <xacro:property name="wheel_radius" value="0.08" /> <!-- 3 inches / 2 -->
   <xacro:property name="wheel_width" value="0.03" /> <!-- Assuming a wheel width of 5cm -->
@@ -16,9 +22,9 @@
     </visual>
     <collision>
         <geometry>
-        <cylinder radius="${chassis_radius}" length="${chassis_height}"/>
+          <cylinder radius="${chassis_radius}" length="${chassis_height}"/>
         </geometry>
-      </collision>
+    </collision>
     <inertial>
       <origin xyz="0 0 0"/>
       <mass value="1.0"/>
