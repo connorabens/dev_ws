@@ -15,6 +15,18 @@
 
   <!-- Base Link -->
   <link name="base_link">
+
+  </link>
+
+  <!-- Chassis Link -->
+
+  <joint name="chassis_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassis"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+  <link name="chassis">
     <visual>
       <geometry>
         <cylinder radius="${chassis_radius}" length="${chassis_height}"/>
@@ -32,9 +44,18 @@
     </inertial>
   </link>
 
-<gazebo reference="base_link">
+<gazebo reference="chassis">
     <material>Gazebo/White</material>
 </gazebo>
+
+<!-- BASE_FOOTPRINT LINK
+
+<joint name="base_footprint_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="base_footprint"/>
+  <origin xyz ="0 0 0" rpy="0 0 0"/>
+</joint>
+ -->
 
   <!-- Controlled Wheels -->
   <xacro:macro name="wheel" params="name x y w">
